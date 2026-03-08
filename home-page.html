@@ -17,12 +17,14 @@
 
 <body>
   <header>
-    <div class="navbar bg-base-100 shadow-sm justify-between px-10">
-      <div class="flex">
-        <h2 class="font-bold text-2xl ">All issue Traker</h2>
+    <div class="navbar bg-base-100 shadow-sm flex-col lg:flex lg:flex-row space-y-3 justify-between px-10">
+      <div class="flex items-center gap-2">
+          <img src="./images/github-logo.png" alt="" class="w-[40px]">
+          <h2 class="text-2xl font-semibold">GitHub Issues Tracker</h2>
+        </h2>
       </div>
       <div class="flex gap-2">
-        <input type="text" placeholder='Search' class="input input-bordered w-24 md:w-auto" />
+        <input type="text" placeholder='Search' class="input input-bordered w-30 md:w-auto" />
         <button class="btn btn-primary"> + New Issue</button>
         <div class="dropdown dropdown-end">
           <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
@@ -43,39 +45,39 @@
     </div>
   </header>
   <section>
-    <div id="btn-container" class="w-11/12 bg-white shadow-md mx-auto mt-15 p-3 flex gap-2">
+    <div id="btn-container" class="w-11/12 bg-white shadow-md mx-auto mt-10 p-3 flex justify-center lg:flex gap-2 lg:justify-start">
       <button class="btn btn-primary" id="all-btn">All</button>
       <button class="btn" id="open-btn">Open</button>
       <button class="btn" id="closed-btn">Closed</button>
     </div>
   </section>
-  
-  <section>
-     <div id="btn-container" class="w-11/12 bg-white shadow-md mx-auto mt-5 mb-5 p-5 flex justify-between items-center">
-      <div class="flex justify-between">
-      <div class="flex gap-2 items-center">
 
-        <div> 
-          <img src="./images/Aperture.png" alt="" class="w-[60px]">
-        </div>
-      
-        <div>
-          <p class="font-bold text-2xl"><span id="count" >0</span> Issues</p>
-          <h2>Track and manage your project issues</h2>
+  <section>
+    <div id="btn-container" class="w-11/12 bg-white shadow-md mx-auto mt-5 mb-5 p-5  lg:flex lg:justify-between items-center">
+      <div class="flex justify-between">
+        <div class="flex gap-2 items-center">
+
+          <div>
+            <img src="./images/Aperture.png" alt="" class="w-[60px]">
+          </div>
+
+          <div>
+            <p class="font-bold text-2xl"><span id="count">0</span> Issues</p>
+            <h2>Track and manage your project issues</h2>
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <ul class="flex gap-3">
-        <li><i class="fa-solid fa-circle text-green-400"></i>open</li>
-        <li><i class="fa-solid fa-circle text-purple-700"></i>closed</li>
-      </ul>
-    </div>
+      <div class="">
+        <ul class="flex gap-3 justify-center mt-2.5">
+          <li><i class="fa-solid fa-circle text-green-400"></i>open</li>
+          <li><i class="fa-solid fa-circle text-purple-700"></i>closed</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section>
-    <div id="card-container" class="w-11/12 mx-auto grid grid-cols-4 gap-5 ">
+    <div id="card-container" class="w-11/12 mx-auto sm: grid grid-cols- lg:grid lg:grid-cols-4 gap-5 ">
 
       <!-- <div class="card w-80 bg-base-100 card-lg shadow-sm">
         <div class="card-body">
@@ -99,6 +101,18 @@
         </div>
       </div> -->
     </div>
+  </section>
+  <section>
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div id="modal-container" class="modal-box">
+       
+        </div>
+
+       
+      </div>
+    </dialog>
   </section>
   <script src="./js/home-page.js"></script>
 </body>
