@@ -1,54 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <!-- dasyui and tallwind -->
-      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <!-- font awsome -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- dasyui and tallwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- font awsome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+
 <body>
-<header >
+  <header>
     <div class="navbar bg-base-100 shadow-sm justify-between px-10">
-  <div class="flex">
-    <img src="./images/github-logo.png" alt="" class=" w-[36px] h-[37px]">
-    <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
-  </div>
-  <div class="flex gap-2">
-    <input type="text" placeholder= 'Search' class="input input-bordered w-24 md:w-auto" />
-    <button class="btn btn-primary"> + New Issue</button>
-    <div class="dropdown dropdown-end">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-      
+      <div class="flex">
+        <h2 class="font-bold text-2xl ">All issue Traker</h2>
       </div>
-      <ul
-        tabindex="-1"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li>
-          <a class="justify-between">
-            Profile
-            <span class="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+      <div class="flex gap-2">
+        <input type="text" placeholder='Search' class="input input-bordered w-24 md:w-auto" />
+        <button class="btn btn-primary"> + New Issue</button>
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+
+          </div>
+          <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li>
+              <a class="justify-between">
+                Profile
+                <span class="badge">New</span>
+              </a>
+            </li>
+            <li><a>Settings</a></li>
+            <li><a>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div id="btn-container" class="w-11/12 bg-white shadow-md mx-auto mt-15 p-3 flex gap-2">
+      <button class="btn btn-primary" id="all-btn">All</button>
+      <button class="btn" id="open-btn">Open</button>
+      <button class="btn" id="closed-btn">Closed</button>
+    </div>
+  </section>
+  
+  <section>
+     <div id="btn-container" class="w-11/12 bg-white shadow-md mx-auto mt-5 mb-5 p-5 flex justify-between items-center">
+      <div class="flex justify-between">
+      <div class="flex gap-2 items-center">
+
+        <div> 
+          <img src="./images/Aperture.png" alt="" class="w-[60px]">
+        </div>
+      
+        <div>
+          <p class="font-bold text-2xl"><span id="count" >0</span> Issues</p>
+          <h2>Track and manage your project issues</h2>
+        </div>
+      </div>
+    </div>
+    <div>
+      <ul class="flex gap-3">
+        <li><i class="fa-solid fa-circle text-green-400"></i>open</li>
+        <li><i class="fa-solid fa-circle text-purple-700"></i>closed</li>
       </ul>
     </div>
-  </div>
-</div>
-</header>
-    <section>
-      <div id="btn-container" class="w-11/12 bg-white shadow-md mx-auto mt-15 p-3 flex gap-2">
-        <button class="btn btn-primary">All</button>
-        <button class="btn">Open</button>
-        <button class="btn">Closed</button>
+    </div>
+  </section>
 
-      </div>
-    </section>
-    <script src=""></script>
+  <section>
+    <div id="card-container" class="w-11/12 mx-auto grid grid-cols-4 gap-5 ">
+
+      <!-- <div class="card w-80 bg-base-100 card-lg shadow-sm">
+        <div class="card-body">
+          <div class="flex justify-between">
+            <img src="./images/Open-Status.png" alt="">
+            <button class="border rounded-2xl px-2">MEDIUM</button>
+          </div>
+          <p class="font-bold text-[20px]">Fix navigation menu on mobile devices</p>
+          <p class="line-clamp-2">The navigation menu doesn't collapse properly on mobile devices...</p>
+          <div class="flex gap-3">
+            <button class="bg-yellow-400 px-3 rounded-2xl">BUG</button>
+            <button class="bg-yellow-400 px-3 rounded-2xl">HELP WANTED</button>
+          </div>
+          <hr>
+          <div class="flex flex-col gap-3">
+              <p>#1by john_doe</p>
+              <p>1/15/2024</p>
+            </div>
+          
+
+        </div>
+      </div> -->
+    </div>
+  </section>
+  <script src="./js/home-page.js"></script>
 </body>
+
 </html>
