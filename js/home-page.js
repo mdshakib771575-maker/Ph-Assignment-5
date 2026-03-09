@@ -3,6 +3,8 @@ const openBtn = document.getElementById('open-btn')
 const closedBtn = document.getElementById('closed-btn')
 const cardContainer = document.getElementById('card-container')
 const count = document.getElementById('count')
+
+
 function lodeAllCard(){
  fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then((res)=>res.json())
@@ -50,7 +52,6 @@ count.innerText = data.id;
     }))
   
 }
-lodeAllCard();
 
 function loadModal(id){
 // my_modal_5.showModal()
@@ -63,10 +64,10 @@ fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
 }
 
 function displaymodal(data){
-const modalContainer = document.getElementById('modal-container');
-modalContainer.innerHTML=`
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML=`
  <div class="space-y-5">
-          <h2 class="font-bold text-xl">${data.title}</h2>
+ <h2 class="font-bold text-xl">${data.title}</h2>
           <div class="flex gap-3 items-center">
             <p class="rounded-xl bg-green-600 text-white px-2">${data.status}</p>
             <p class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px]"></i>Opened by ${data.author}</p>
@@ -211,5 +212,57 @@ if(data.status==='closed'){
 })
 
 
+lodeAllCard();
+
+function search(){
+  document.getElementById('btn-search').addEventListener('click',()=>{
+const input = document.getElementById('input');
+const inputValue =  input.value.trim().toLowerCase();
+fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`)
+    .then((res)=>res.json())
+    .then((datas)=>{
+      // const data = datas.data;
+      // console.log(data)
+      displaySearch(datas.data)
+      document.getElementById('input').value="";
+    
+//        
+   
+    })
+
+})
+}
+search()
+
+
+function displaySearch(datas){
+  cardContainer.innerHTML = "";
+datas.forEach((data)=>{
+    const searchDiv = document.createElement('div')
+
+        searchDiv.innerHTML = `
+          <div onclick="loadModal(${data.id})" class="card w-full bg-base-100 card-lg shadow-2xl]">
+        <div class="card-body space-y-4 shadow-xl">
+          <div class="flex justify-between">
+            <img src="./images/Open-Status.png" alt="">
+            <button class="bb border rounded-2xl px-2">${data.priority}</button>
+          </div>
+          <p class="font-bold text-[20px]">${data.title}</p>
+          <p class="line-clamp-2">${data.description}</p>
+          <div class="flex gap-3">
+            <button class="bg-yellow-400 rounded-md">${data.labels[0]}</button>
+            <button class="bg-yellow-400 px-3 rounded-2xl">${data.labels[1]}</button>
+          </div>
+          <hr>
+          <div class="flex flex-col gap-3">
+              <p>#${data.author}</p>
+              <p>${data.createdAt}</p>
+            </div>
+        </div>
+      </div>
+        `
+        cardContainer.appendChild(searchDiv)
+      })
+}
 
 

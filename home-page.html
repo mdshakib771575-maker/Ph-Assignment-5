@@ -24,24 +24,16 @@
         </h2>
       </div>
       <div class="flex gap-2">
-        <input type="text" placeholder='Search' class="input input-bordered w-30 md:w-auto" />
-        <button class="btn btn-primary"> + New Issue</button>
-        <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-
-          </div>
-          <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li>
-              <a class="justify-between">
-                Profile
-                <span class="badge">New</span>
-              </a>
-            </li>
-            <li><a>Settings</a></li>
-            <li><a>Logout</a></li>
-          </ul>
-        </div>
-      </div>
+       <div class="join">
+  <div>
+    <label class="input join-item">
+      
+      <input id="input" type="text" placeholder="search" required />
+    </label>
+  </div>
+  <button id="btn-search" class="btn btn-primary join-item">+ New Issue</button>
+</div>
+          
     </div>
   </header>
   <section>
@@ -75,31 +67,11 @@
       </div>
     </div>
   </section>
-
+<!-- modal section -->
   <section>
-    <div id="card-container" class="w-11/12 mx-auto sm: grid grid-cols- lg:grid lg:grid-cols-4 gap-5 ">
+    <div id="card-container" class="w-11/12 mx-auto sm: grid grid-cols-1 lg:grid lg:grid-cols-4 gap-5 ">
 
-      <!-- <div class="card w-80 bg-base-100 card-lg shadow-sm">
-        <div class="card-body">
-          <div class="flex justify-between">
-            <img src="./images/Open-Status.png" alt="">
-            <button class="border rounded-2xl px-2">MEDIUM</button>
-          </div>
-          <p class="font-bold text-[20px]">Fix navigation menu on mobile devices</p>
-          <p class="line-clamp-2">The navigation menu doesn't collapse properly on mobile devices...</p>
-          <div class="flex gap-3">
-            <button class="bg-yellow-400 px-3 rounded-2xl">BUG</button>
-            <button class="bg-yellow-400 px-3 rounded-2xl">HELP WANTED</button>
-          </div>
-          <hr>
-          <div class="flex flex-col gap-3">
-              <p>#1by john_doe</p>
-              <p>1/15/2024</p>
-            </div>
-          
-
-        </div>
-      </div> -->
+     
     </div>
   </section>
   <section>
