@@ -47,15 +47,17 @@ function lodeAllCard(){
         const card = document.querySelector(".card");
         card.classList='border-t-5 border-purple-500' 
       }
+    
       
 count.innerText = data.id;
+
     }))
-  
 }
 
 function loadModal(id){
 // my_modal_5.showModal()
-console.log(id)
+// console.log(id)
+
 fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
 .then((res)=>res.json())
 .then((data)=>displaymodal(data.data))
@@ -103,6 +105,7 @@ document.getElementById('my_modal_5').showModal();
 
 allBtn.addEventListener('click',()=>{
   cardContainer.innerHTML ="";
+
    allBtn.classList.add('btn-primary',"text-white")
   openBtn.classList.remove('btn-primary',"text-white")
   closedBtn.classList.remove('btn-primary',"text-white")
@@ -111,11 +114,12 @@ lodeAllCard()
 })
 
 openBtn.addEventListener('click',()=>{
+  
   cardContainer.innerHTML = "";
   allBtn.classList.remove('btn-primary',"text-white")
   closedBtn.classList.remove('btn-primary',"text-white")
   openBtn.classList.add('btn-primary',"text-white")
-  
+ 
 fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then((res)=>res.json())
     .then((datas)=>
@@ -147,6 +151,7 @@ fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
       </div>
         `
 cardContainer.appendChild(cardDiv)
+
 if(data.status==='open'){
         const card = document.querySelector(".card");
         card.classList='border-t-5 border-green-500' 
@@ -158,6 +163,7 @@ if(data.status==='open'){
 }
 
     }))
+
 })
 
 closedBtn.addEventListener('click',()=>{
@@ -165,7 +171,7 @@ closedBtn.addEventListener('click',()=>{
   allBtn.classList.remove('btn-primary',"text-white")
   openBtn.classList.remove('btn-primary',"text-white")
   closedBtn.classList.add('btn-primary',"text-white")
-  
+
   fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then((res)=>res.json())
     .then((datas)=>
@@ -197,6 +203,7 @@ closedBtn.addEventListener('click',()=>{
       </div>
         `
 cardContainer.appendChild(cardDiv)
+
 if(data.status==='closed'){
         const card = document.querySelector(".card");
         card.classList='border-t-5 border-purple-500' 
@@ -236,6 +243,7 @@ search()
 
 
 function displaySearch(datas){
+
   cardContainer.innerHTML = "";
 datas.forEach((data)=>{
     const searchDiv = document.createElement('div')
@@ -264,5 +272,7 @@ datas.forEach((data)=>{
         cardContainer.appendChild(searchDiv)
       })
 }
+
+
 
 
